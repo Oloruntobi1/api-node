@@ -1,3 +1,10 @@
-language: node_js
-node_js:
-    - "13.13.0"
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker pull node:13.13.0
+    - docker build -t my-express-app .
+
+script:
+    - docker run --rm my--expressapp npm test

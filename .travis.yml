@@ -7,4 +7,4 @@ before_install:
     - docker build -t my-express-app .
 
 script:
-    - docker run --rm my--express-app npm test
+    - docker run --rm my-express-app npm test

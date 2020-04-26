@@ -6,26 +6,29 @@
   "scripts": {
     "lint": "eslint .",
     "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/**/*Tests.js --timeout 5000"
   },
   "author": "Balogun",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "mongoose": "^5.9.10",
     "nodemon": "^2.0.3"
+    
   },
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^6.8.0",
+    "mocha": "^7.1.1",
+    "should": "^13.2.3",
+    "sinon": "^9.0.2",
+    "supertest": "^4.0.2"
   },
-  "nodemonConfig":{
+  "nodemonConfig": {
     "restartable": "rs",
     "ignore": [
       "node_modules/**/node_modules"
     ],
-    "delay": "2500",
-    "env": {
-      "NODE_ENV": "development",
-      "PORT": 4000
-    }
+    "delay": "2500"
   }
 }

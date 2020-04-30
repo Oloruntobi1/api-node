@@ -4,6 +4,8 @@ LABEL maintainer=blgntobi@gmail.com
 
 ENV PORT=3000
 
+
+
 COPY . var/code
 
 WORKDIR  /var/code
@@ -11,5 +13,7 @@ WORKDIR  /var/code
 RUN npm install
 
 EXPOSE $PORT
+
+CMD ["npm", "start"]
 
 # ENTRYPOINT [ "npm", "start" ]

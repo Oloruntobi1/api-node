@@ -1,0 +1,53 @@
+version: "3.7"
+
+services: 
+    node-server1:
+        build: 
+            context: .
+            dockerfile: node.Dockerfile
+        container_name: node-server1
+        depends_on:
+            - db
+        networks: 
+            - test-network1
+        ports:
+            - "5000:3000"
+        environment:
+            - NAME=Balogun
+    
+
+    node-server2:
+        build:
+            context: .
+            dockerfile: node.Dockerfile
+        container_name: node-server2
+        depends_on:
+            - db
+        networks:
+            - test-network2
+        ports:
+            - "5001:3000"
+           
+
+    
+    db:
+        image: lowcostbeans/data-for-mongo:v1
+        container_name: my-db
+        networks: 
+            - test-network1
+            - test-network2
+
+    
+    load-balancer:
+        build:
+            context: .
+            dockerfile: nginx.Dockerfile
+
+        ports: 
+            - "7800:80"
+
+
+networks:
+    test-network1:
+    test-network2:
+    

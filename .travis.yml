@@ -14,5 +14,5 @@ before_install:
     - docker-compose build
 
 script:
-    - docker run --rm node-server1 npm test
-    - docker run --rm node-server2 npm test
+    - docker run --rm api-node_node-server1 npm test
+    - docker run --rm api-node_node-server2 npm test

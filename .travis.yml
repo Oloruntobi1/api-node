@@ -3,8 +3,8 @@ services:
     - docker
 
 before_install:
-    - docker pull node:13.13.0
-    - docker build -t my-express-app .
+    - docker-compose build
 
 script:
-    - docker run --rm my-express-app npm test
+    - docker run --rm node-server1 npm test
+    - docker run --rm node-server2 npm test
